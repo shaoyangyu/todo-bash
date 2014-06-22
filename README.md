@@ -1,6 +1,15 @@
 Two tiny programs, `todo` and `todone`. I like to alias them to `t` and `d`.
 
-One bonus program, `todos_completed`, to see how much you've accomplished!
+One bonus program, `todos_completed`, to see how much you've accomplished! I like to alias them to `c`
+
+Two manage programs, `todo.edit` and `todo.history`
+
+Another tiny program is to support muti todo list, 
+for example, you may want a private todolist, but also want have a public todo list which you can share with team.
+You can use that as below:
+todo.new "private" "~/todo/private"
+todo.ls
+todo.switch "private"
 
 # Usage #
 
@@ -28,7 +37,7 @@ $ d brush
 2. water the cat
 $ d 1
 1. water the cat
-$ tail -5 $TODOHISTORY
+$ todo.history | tail -5
 + feed the plants; Wed Mar 20 23:49:37 EDT 2013
 + water the cat; Wed Mar 20 23:49:39 EDT 2013
 + brush the cat; Wed Mar 20 23:49:54 EDT 2013
@@ -38,35 +47,27 @@ $ todos_completed -1hour
 √ brush the cat
 √ feed the plants
 ```
+$ todo.new "private" "~/todo/private"
+$ todo.new "public" "~/todo/public"
+$ todo.ls
+ private
+*public
+$ todo.switch "private" 
+*private
+public
+
 
 The lists are just plain text files, so it's easy to open them up and edit them
-by hand whenever that's necessary.
+by hand whenever that's necessary. or you can use todo.edit to open and edit the text directly.
+
+
 
 # Installation #
 
-Clone the repo somewhere on your `$PATH`, like maybe `~/bin` if you use that:
+Clone the repo somewhere on your local
 
 ```bash
-git clone git@github.com:mattjj/todo-bash.git ~/bin/todo
+git clone https://github.com/shaoyangyu/todo-bash.git
 ```
 
-These programs require an environment variable `TODOFILE` be set to a path at
-which the todo list will be stored as a plain text file. There are also a
-couple optional variables. You might add something like this to your `.bashrc`
-or `.zshrc`:
-
-```bash
-export TODOFILE=~/Dropbox/todo/todo
-export TODOHISTORY=~/Dropbox/todo/todo-history
-alias t=todo
-alias d=todone
-```
-
-or this to your `config.fish`:
-
-```csh
-set -x TODOFILE ~/Dropbox/todo/todo
-set -x TODOHISTORY ~/Dropbox/todo/todo-history
-alias t=todo
-alias d=todone
-```
+add `source $path/sourceme.sh` in your .bashrc
