@@ -6,10 +6,13 @@ Two manage programs, `todo.edit` and `todo.history`
 
 Another tiny program is to support muti todo list, 
 for example, you may want a private todolist, but also want have a public todo list which you can share with team.
+
 You can use that as below:
-todo.new "private" "~/todo/private"
-todo.ls
-todo.switch "private"
+`todo.new "private" "~/todo/private"`
+
+`todo.ls`
+
+`todo.switch "private"`
 
 # Usage #
 
@@ -46,7 +49,6 @@ $ todo.history | tail -5
 $ todos_completed -1hour
 √ brush the cat
 √ feed the plants
-```
 $ todo.new "private" "~/todo/private"
 $ todo.new "public" "~/todo/public"
 $ todo.ls
@@ -55,10 +57,13 @@ $ todo.ls
 $ todo.switch "private" 
 *private
 public
+```
 
 
 The lists are just plain text files, so it's easy to open them up and edit them
-by hand whenever that's necessary. or you can use todo.edit to open and edit the text directly.
+by hand whenever that's necessary. 
+
+or you can use todo.edit to open and edit the text directly.
 
 
 
